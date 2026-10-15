@@ -138,6 +138,11 @@
   @media (hover:hover){
     .card:hover{transform:translateY(-4px);box-shadow:0 22px 42px -20px var(--shadow);}
   }
+  /* dress-code palette swatches */
+  .palette-card{background:#fffdf7;border:1px solid rgba(90,110,130,.15);border-radius:14px;padding:16px 16px 14px;margin-top:14px;text-align:center;box-shadow:0 10px 22px -16px var(--shadow);}
+  .palette{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .palette .swatch{width:34px;height:50px;border-radius:30px 30px 7px 7px;border:1px solid rgba(90,110,130,.2);box-shadow:0 6px 14px -9px var(--shadow);}
+  .palette-note{font-family:'Patrick Hand',cursive;font-size:14px;color:var(--ink-soft);margin:11px 0 0;letter-spacing:.03em;}
   .card .ic{width:56px;height:56px;margin:0 auto 10px;display:block;}
   .card .k{font-family:'Patrick Hand',cursive;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-deep);font-size:15px;}
   .card .v{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(28px,4.5vw,38px);line-height:1.05;margin-top:4px;}
@@ -440,6 +445,16 @@
         <div class="faq-item">
           <h3>What should I wear?</h3>
           <p>Formal attire, please, in light colors and pastels, and no prints. Long gowns and light-colored suits are perfect. Early January here is mild, roughly 45 to 65&deg;F (8 to 19&deg;C) with cool, dry evenings, so bring a layer for after dark.</p>
+          <div class="palette-card">
+            <div class="palette">
+              <span class="swatch" style="background:#d5cbe2"></span>
+              <span class="swatch" style="background:#cadaee"></span>
+              <span class="swatch" style="background:#eed0ce"></span>
+              <span class="swatch" style="background:#f8f8cb"></span>
+              <span class="swatch" style="background:#d7e4d0"></span>
+            </div>
+            <p class="palette-note">Our palette, to inspire your outfit</p>
+          </div>
         </div>
         <div class="faq-item">
           <h3>Is it adults only?</h3>
