@@ -196,13 +196,31 @@
   .sched{max-width:620px;margin:clamp(24px,4vw,40px) auto 0;text-align:left;}
   .day-card{background:#fffdf7;border:2px solid var(--blue-pale);border-radius:20px;padding:clamp(22px,3.5vw,30px);margin-bottom:20px;box-shadow:0 14px 30px -18px var(--shadow);}
   .day-card:last-child{margin-bottom:0;}
-  .day-card h3{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(30px,5vw,42px);color:var(--ink);margin:0;text-align:center;line-height:1;}
-  .day-card .date{display:block;text-align:center;font-family:'Patrick Hand',cursive;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-deep);margin:4px 0 14px;}
-  .day-card .tagline{text-align:center;font-family:'Caveat',cursive;font-weight:600;font-size:clamp(21px,3.4vw,28px);color:var(--ink-soft);margin:-4px 0 14px;}
-  .sched-row{display:flex;gap:14px;padding:9px 2px;border-top:1px dashed rgba(139,167,196,.45);}
-  .sched-row:first-of-type{border-top:none;}
-  .sched-row .t{flex:0 0 86px;font-family:'Patrick Hand',cursive;color:var(--blue-deep);}
+  .day-head{position:relative;display:block;width:100%;background:none;border:none;cursor:pointer;padding:2px 28px;text-align:center;font:inherit;color:inherit;}
+  .day-head .dh-name{display:block;font-family:'Caveat',cursive;font-weight:700;font-size:clamp(30px,5vw,42px);color:var(--ink);line-height:1;}
+  .day-head .dh-date{display:block;font-family:'Patrick Hand',cursive;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-deep);margin-top:4px;}
+  .day-head .chev{position:absolute;right:6px;top:50%;width:13px;height:13px;border-right:2.5px solid var(--blue-deep);border-bottom:2.5px solid var(--blue-deep);transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;}
+  .day-card.open .day-head .chev{transform:translateY(-30%) rotate(-135deg);}
+  .day-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease;}
+  .day-card.open .day-body{grid-template-rows:1fr;}
+  .day-body-inner{overflow:hidden;min-height:0;}
+  .day-card .tagline{text-align:center;font-family:'Caveat',cursive;font-weight:600;font-size:clamp(21px,3.4vw,28px);color:var(--ink-soft);margin:14px 0 0;}
+  @media (prefers-reduced-motion: reduce){.day-body{transition:none;}.day-head .chev{transition:none;}}
+  .sched-list{position:relative;margin-top:16px;}
+  .sched-list::before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;background:rgba(139,167,196,.4);}
+  .sched-row{position:relative;display:flex;align-items:baseline;gap:16px;padding:8px 0 8px 32px;}
+  .sched-row::before{content:"";position:absolute;left:4px;top:11px;width:12px;height:12px;border-radius:50%;background:#fffdf7;border:2.5px solid var(--blue-deep);box-sizing:border-box;}
+  .sched-row.soft::before{width:9px;height:9px;left:5.5px;top:13px;border-color:var(--blue-pale);}
+  .sched-row .t{flex:0 0 74px;font-family:'Patrick Hand',cursive;color:var(--blue-deep);}
+  .sched-row.soft .a{font-style:italic;color:var(--ink-soft);}
   .sched-row .a{flex:1;}
+
+  /* contact */
+  .contact-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;max-width:720px;margin:clamp(26px,4vw,40px) auto 0;}
+  .contact-card{background:#fffdf7;border:2px solid var(--blue-pale);border-radius:20px;padding:clamp(24px,4vw,32px);width:min(320px,100%);text-align:center;box-shadow:0 14px 30px -18px var(--shadow);}
+  .contact-card .cname{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(30px,5vw,40px);color:var(--ink);margin-bottom:10px;}
+  .contact-card .cline{margin:6px 0;color:var(--ink-soft);font-size:16px;}
+  .contact-card .ph{color:var(--blue-deep);border-bottom:1px dashed var(--blue);padding-bottom:1px;}
   .picks{list-style:none;margin:10px 0 0;padding:0;}
   .picks li{color:var(--ink-soft);font-size:16px;padding:5px 0;border-top:1px dashed rgba(139,167,196,.35);}
   .picks li:first-child{border-top:none;}
@@ -233,7 +251,7 @@
       <li><a href="#stay">Stay</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#explore">Explore</a></li>
-      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -249,7 +267,6 @@
       <p class="lead">
         And we&rsquo;d love nothing more than to have you there for it. We cannot wait to gather
         the people we love most in a city we adore, and to celebrate the start of this next chapter together.
-        <span class="sig">Save the date, more to come.</span>
       </p>
     </div>
   </section>
@@ -268,7 +285,7 @@
             </g>
           </svg>
           <div class="k">When</div>
-          <div class="v">Jan 7 to 9<br>2027<small>A three-day weekend &middot; ceremony Friday the 8th</small></div>
+          <div class="v">Jan 7 to 9<br>2027<small>Three days of celebration &middot; ceremony Friday the 8th</small></div>
         </div>
         <div class="card">
           <svg class="ic" viewBox="0 0 60 60" aria-hidden="true">
@@ -289,7 +306,7 @@
             </g>
           </svg>
           <div class="k">The plan</div>
-          <div class="v">Three days<br>together<small>See the weekend below</small></div>
+          <div class="v">Three days<br>together<small>See the wedding weekend below</small></div>
         </div>
       </div>
     </div>
@@ -298,36 +315,57 @@
   <!-- ======================= WEEKEND SCHEDULE ======================= -->
   <section class="band" id="agenda">
     <div class="wrap reveal">
-      <h2 class="heading">The weekend</h2>
-      <p class="lead">We&rsquo;re making a whole weekend of it, Thursday January 7 through Saturday January 9. Here&rsquo;s how the three days unfold.</p>
+      <h2 class="heading">Wedding weekend</h2>
+      <p class="lead">Our wedding weekend runs Thursday January 7 through Saturday January 9. Tap each day to open the plan.</p>
       <div class="sched">
-        <div class="day-card">
-          <h3>Thursday</h3>
-          <span class="date">January 7</span>
-          <div class="sched-row"><span class="t">5:30 PM</span><span class="a">Guests check in</span></div>
-          <div class="sched-row"><span class="t">6:00 PM</span><span class="a">Welcome dinner</span></div>
-          <div class="sched-row"><span class="t">&middot;</span><span class="a">Wine tasting</span></div>
-          <div class="sched-row"><span class="t">9:00 PM</span><span class="a">End of day one</span></div>
+        <div class="day-card open">
+          <button class="day-head" aria-expanded="true">
+            <span class="dh-name">Thursday</span>
+            <span class="dh-date">January 7</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <div class="day-body"><div class="day-body-inner">
+            <div class="sched-list">
+              <div class="sched-row"><span class="t">5:30 PM</span><span class="a">Arrivals &amp; check-in</span></div>
+              <div class="sched-row"><span class="t">6:00 PM</span><span class="a">Welcome dinner</span></div>
+              <div class="sched-row soft"><span class="t"></span><span class="a">Wine tasting</span></div>
+              <div class="sched-row"><span class="t">9:00 PM</span><span class="a">Evening winds down</span></div>
+            </div>
+          </div></div>
         </div>
         <div class="day-card">
-          <h3>Friday</h3>
-          <span class="date">January 8</span>
-          <p class="tagline">&ldquo;We vow, we drink, we eat, we party&rdquo;</p>
-          <div class="sched-row"><span class="t">8:00 AM</span><span class="a">Breakfast</span></div>
-          <div class="sched-row"><span class="t">&middot;</span><span class="a">Free time in the morning</span></div>
-          <div class="sched-row"><span class="t">12:00 PM</span><span class="a">Lunch</span></div>
-          <div class="sched-row"><span class="t">&middot;</span><span class="a">Guests prepare</span></div>
-          <div class="sched-row"><span class="t">3:30 PM</span><span class="a">Ceremony call time</span></div>
-          <div class="sched-row"><span class="t">4:00 PM</span><span class="a">Ceremony</span></div>
-          <div class="sched-row"><span class="t">5:30 PM</span><span class="a">Cocktails</span></div>
-          <div class="sched-row"><span class="t">6:30 PM</span><span class="a">Reception</span></div>
-          <div class="sched-row"><span class="t">9:00 PM</span><span class="a">Afterparty</span></div>
+          <button class="day-head" aria-expanded="false">
+            <span class="dh-name">Friday</span>
+            <span class="dh-date">January 8</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <div class="day-body"><div class="day-body-inner">
+            <p class="tagline">&ldquo;We vow, we drink, we eat, we party&rdquo;</p>
+            <div class="sched-list">
+              <div class="sched-row"><span class="t">8:00 AM</span><span class="a">Breakfast</span></div>
+              <div class="sched-row soft"><span class="t"></span><span class="a">Free morning</span></div>
+              <div class="sched-row"><span class="t">12:00 PM</span><span class="a">Lunch</span></div>
+              <div class="sched-row soft"><span class="t"></span><span class="a">Time to get ready</span></div>
+              <div class="sched-row"><span class="t">3:30 PM</span><span class="a">Ceremony call time</span></div>
+              <div class="sched-row"><span class="t">4:00 PM</span><span class="a">Ceremony</span></div>
+              <div class="sched-row"><span class="t">5:30 PM</span><span class="a">Cocktail hour</span></div>
+              <div class="sched-row"><span class="t">6:30 PM</span><span class="a">Reception</span></div>
+              <div class="sched-row"><span class="t">9:00 PM</span><span class="a">Afterparty</span></div>
+            </div>
+          </div></div>
         </div>
         <div class="day-card">
-          <h3>Saturday</h3>
-          <span class="date">January 9</span>
-          <div class="sched-row"><span class="t">10:00 AM</span><span class="a">Check out</span></div>
-          <div class="sched-row"><span class="t">11:00 AM</span><span class="a">Brunch by the beach</span></div>
+          <button class="day-head" aria-expanded="false">
+            <span class="dh-name">Saturday</span>
+            <span class="dh-date">January 9</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <div class="day-body"><div class="day-body-inner">
+            <div class="sched-list">
+              <div class="sched-row"><span class="t">10:00 AM</span><span class="a">Check-out</span></div>
+              <div class="sched-row"><span class="t">11:00 AM</span><span class="a">Beach brunch</span></div>
+            </div>
+          </div></div>
         </div>
       </div>
     </div>
@@ -337,7 +375,7 @@
   <section class="band tint" id="travel">
     <div class="wrap reveal">
       <h2 class="heading">Getting there</h2>
-      <p class="lead">Our whole weekend is at Vista Villa Resorts in Vista, California, about a 45-minute drive north of San Diego International Airport (SAN). We&rsquo;d suggest flying into SAN and driving up. The full address is 29314 Twin Oaks Valley Road, Vista, CA 92084. Car rental tips are on the way, and once your flights are booked, please send your travel itinerary to Cheza so we can help with arrivals.</p>
+      <p class="lead">Our whole celebration is at Vista Villa Resorts in Vista, California, about a 45-minute drive north of San Diego International Airport (SAN). We&rsquo;d suggest flying into SAN and driving up. The full address is 29314 Twin Oaks Valley Road, Vista, CA 92084. Car rental tips are on the way, and once your flights are booked, please send your travel itinerary to Cheza so we can help with arrivals.</p>
     </div>
   </section>
 
@@ -345,7 +383,7 @@
   <section class="band" id="stay">
     <div class="wrap reveal">
       <h2 class="heading">Where to stay</h2>
-      <p class="lead">Good news: your stay is taken care of. Every guest has a room at Vista Villa Resorts for all three nights, and every meal across the weekend is included. You&rsquo;re welcome to stay elsewhere if you&rsquo;d prefer, and recommendations for places around San Diego are coming soon.</p>
+      <p class="lead">Good news: your stay is taken care of. Every guest has a room at Vista Villa Resorts for all three nights, and every meal across the three days is included. You&rsquo;re welcome to stay elsewhere if you&rsquo;d prefer, and recommendations for places around San Diego are coming soon.</p>
     </div>
   </section>
 
@@ -361,7 +399,7 @@
         </div>
         <div class="faq-item">
           <h3>Is it adults only?</h3>
-          <p>Yes, this one&rsquo;s an adults-only weekend, so please leave the little ones at home this time.</p>
+          <p>Yes, this one&rsquo;s an adults-only celebration, so please leave the little ones at home this time.</p>
         </div>
         <div class="faq-item">
           <h3>Do I need to book a room or sort out meals?</h3>
@@ -441,13 +479,23 @@
     </div>
   </section>
 
-  <!-- ======================= RSVP ======================= -->
-  <section class="band rsvp" id="rsvp">
+  <!-- ======================= CONTACT ======================= -->
+  <section class="band tint" id="contact">
     <div class="wrap reveal">
-      <p class="by">Please <em>RSVP</em></p>
-      <p>Let us know if you can make it, and once your flights are booked, send your travel itinerary to Cheza so we can help with arrivals.</p>
-      <span class="rsvp-static">RSVP to Cheza</span>
-      <p class="note">Kindly respond by the date on your invitation.</p>
+      <h2 class="heading">Get in touch</h2>
+      <p class="lead">Any questions about the celebration, travel, or anything at all, just reach out to either of us.</p>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="cname">Cheza</div>
+          <p class="cline">Email: <span class="ph">add email</span></p>
+          <p class="cline">Phone / WhatsApp: <span class="ph">add number</span></p>
+        </div>
+        <div class="contact-card">
+          <div class="cname">Mav</div>
+          <p class="cline">Email: <span class="ph">add email</span></p>
+          <p class="cline">Phone / WhatsApp: <span class="ph">add number</span></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -470,6 +518,19 @@
       });
     },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
     els.forEach(function(e){io.observe(e);});
+  })();
+  </script>
+
+  <script>
+  (function(){
+    var heads=document.querySelectorAll('.day-head');
+    heads.forEach(function(h){
+      h.addEventListener('click',function(){
+        var card=h.closest('.day-card');
+        var open=card.classList.toggle('open');
+        h.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
   })();
   </script>
 </body>
