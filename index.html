@@ -207,10 +207,11 @@
   .day-card .tagline{text-align:center;font-family:'Caveat',cursive;font-weight:600;font-size:clamp(21px,3.4vw,28px);color:var(--ink-soft);margin:14px 0 0;}
   @media (prefers-reduced-motion: reduce){.day-body{transition:none;}.day-head .chev{transition:none;}}
   .sched-list{position:relative;margin-top:16px;}
-  .sched-list::before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;background:rgba(139,167,196,.4);}
-  .sched-row{position:relative;display:flex;align-items:baseline;gap:16px;padding:8px 0 8px 32px;}
-  .sched-row::before{content:"";position:absolute;left:4px;top:11px;width:12px;height:12px;border-radius:50%;background:#fffdf7;border:2.5px solid var(--blue-deep);box-sizing:border-box;}
-  .sched-row.soft::before{width:9px;height:9px;left:5.5px;top:13px;border-color:var(--blue-pale);}
+  .sched-list::before{content:"";position:absolute;left:11px;top:16px;bottom:16px;width:2px;background:rgba(139,167,196,.4);}
+  .sched-row{position:relative;display:flex;align-items:center;gap:14px;padding:9px 0 9px 42px;}
+  .sched-row .node{position:absolute;left:-2px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:#fffdf7;border:2px solid var(--blue-pale);display:flex;align-items:center;justify-content:center;color:var(--blue-deep);}
+  .sched-row .node svg{width:15px;height:15px;display:block;}
+  .sched-row.soft .node{border-style:dashed;}
   .sched-row .t{flex:0 0 74px;font-family:'Patrick Hand',cursive;color:var(--blue-deep);}
   .sched-row.soft .a{font-style:italic;color:var(--ink-soft);}
   .sched-row .a{flex:1;}
@@ -353,10 +354,10 @@
           </button>
           <div class="day-body"><div class="day-body-inner">
             <div class="sched-list">
-              <div class="sched-row"><span class="t">5:30 PM</span><span class="a">Arrivals &amp; check-in</span></div>
-              <div class="sched-row"><span class="t">6:00 PM</span><span class="a">Welcome dinner</span></div>
-              <div class="sched-row soft"><span class="t"></span><span class="a">Wine tasting</span></div>
-              <div class="sched-row"><span class="t">9:00 PM</span><span class="a">Evening wind-down</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></span><span class="t">5:30 PM</span><span class="a">Arrivals &amp; check-in</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v6a2 2 0 0 1-4 0V3M6 9v12"/><path d="M17 3c-2 0-3 2-3 5s1 4 3 4v9"/></svg></span><span class="t">6:00 PM</span><span class="a">Welcome dinner</span></div>
+              <div class="sched-row soft"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 6.5a3.8 3.8 0 0 1-7.6 0z"/><path d="M12 16v4M8.5 20h7"/></svg></span><span class="t"></span><span class="a">Wine tasting</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13a8 8 0 1 1-8.5-9 6.2 6.2 0 0 0 8.5 9z"/></svg></span><span class="t">9:00 PM</span><span class="a">Evening wind-down</span></div>
             </div>
           </div></div>
         </div>
@@ -369,15 +370,15 @@
           <div class="day-body"><div class="day-body-inner">
             <p class="tagline">&ldquo;We vow, we drink, we eat, we party&rdquo;</p>
             <div class="sched-list">
-              <div class="sched-row"><span class="t">8:00 AM</span><span class="a">Breakfast</span></div>
-              <div class="sched-row soft"><span class="t"></span><span class="a">Free morning</span></div>
-              <div class="sched-row"><span class="t">12:00 PM</span><span class="a">Lunch</span></div>
-              <div class="sched-row soft"><span class="t"></span><span class="a">Time to get ready</span></div>
-              <div class="sched-row"><span class="t">3:30 PM</span><span class="a">Ceremony call time</span></div>
-              <div class="sched-row"><span class="t">4:00 PM</span><span class="a">Ceremony</span></div>
-              <div class="sched-row"><span class="t">5:30 PM</span><span class="a">Cocktail hour</span></div>
-              <div class="sched-row"><span class="t">6:30 PM</span><span class="a">Reception</span></div>
-              <div class="sched-row"><span class="t">9:00 PM</span><span class="a">Afterparty</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h2.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 2.5V4.5M12 2.5V4.5"/></svg></span><span class="t">8:00 AM</span><span class="a">Breakfast</span></div>
+              <div class="sched-row soft"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M5 5l1.8 1.8M17.2 17.2 19 19M5 19l1.8-1.8M17.2 6.8 19 5"/></svg></span><span class="t"></span><span class="a">Free morning</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg></span><span class="t">12:00 PM</span><span class="a">Lunch</span></div>
+              <div class="sched-row soft"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 6.5 6.5 2-6.5 2L12 21l-2-7.5L3.5 11.5 10 9.5z"/></svg></span><span class="t"></span><span class="a">Time to get ready</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span class="t">3:30 PM</span><span class="a">Ceremony call time</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="13.5" r="5.5"/><circle cx="15.5" cy="13.5" r="5.5"/></svg></span><span class="t">4:00 PM</span><span class="a">Ceremony</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-8 8z"/><path d="M12 13v6M8 19h8"/><path d="M16 5l3-3"/></svg></span><span class="t">5:30 PM</span><span class="a">Cocktail hour</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17V5l11-2v12"/><circle cx="6.5" cy="17" r="2.5"/><circle cx="17.5" cy="15" r="2.5"/></svg></span><span class="t">6:30 PM</span><span class="a">Reception</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5 19 19M5 19l2.5-2.5M16.5 7.5 19 5"/></svg></span><span class="t">9:00 PM</span><span class="a">Afterparty</span></div>
             </div>
           </div></div>
         </div>
@@ -389,8 +390,8 @@
           </button>
           <div class="day-body"><div class="day-body-inner">
             <div class="sched-list">
-              <div class="sched-row"><span class="t">10:00 AM</span><span class="a">Check-out</span></div>
-              <div class="sched-row"><span class="t">11:00 AM</span><span class="a">Beach brunch</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></span><span class="t">10:00 AM</span><span class="a">Check-out</span></div>
+              <div class="sched-row"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3"/><path d="M4 16q3-2 5 0t5 0 5 0M4 20q3-2 5 0t5 0 5 0"/></svg></span><span class="t">11:00 AM</span><span class="a">Beach brunch</span></div>
             </div>
           </div></div>
         </div>
@@ -402,7 +403,7 @@
   <section class="band tint" id="travel">
     <div class="wrap reveal">
       <h2 class="heading">Getting there</h2>
-      <p class="lead">Our whole celebration is at Vista Villa Resorts in Vista, California, about a 45-minute drive north of San Diego International Airport (SAN). We&rsquo;d suggest flying into SAN and driving up. The full address is 29314 Twin Oaks Valley Road, Vista, CA 92084. Car rental tips are on the way, and once your flights are booked, please send your travel itinerary to Cheza so we can help with arrivals.</p>
+      <p class="lead">Our whole celebration is at Vista Villa Resorts in Vista, California, about a 45-minute drive north of San Diego International Airport (SAN). We&rsquo;d suggest flying into SAN and driving up. You can also fly into Carlsbad (McClellan-Palomar Airport, CLD), which is still San Diego County and even closer to the venue. The full address is 29314 Twin Oaks Valley Road, Vista, CA 92084. Car rental tips are on the way, and once your flights are booked, please send your travel itinerary to Cheza so we can help with arrivals.</p>
     </div>
   </section>
 
