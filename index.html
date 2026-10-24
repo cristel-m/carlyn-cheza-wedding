@@ -653,27 +653,5 @@
     });
   })();
   </script>
-  <!-- TEMP: background-intensity preview toggle. Remove once a level is chosen. -->
-  <button id="bgToggle" type="button" aria-label="Preview background strength">BG: Middle</button>
-  <style>
-    #bgToggle{position:fixed;right:14px;bottom:14px;z-index:300;font-family:'Patrick Hand',cursive;font-size:14px;letter-spacing:.3px;color:#fffdf7;background:var(--blue-deep,#2f4858);border:none;border-radius:30px;padding:9px 16px;cursor:pointer;box-shadow:0 10px 24px -10px rgba(0,0,0,.5);-webkit-tap-highlight-color:transparent;}
-    #bgToggle:hover{filter:brightness(1.07);}
-    #bgToggle:active{transform:translateY(1px);}
-  </style>
-  <script>
-  (function(){
-    var btn=document.getElementById('bgToggle');
-    var levels=[['Original',0.82,0.86],['Middle',0.72,0.77],['Stronger',0.62,0.68]];
-    var i=1;
-    function apply(){
-      var l=levels[i];
-      document.documentElement.style.setProperty('--wash-a',l[1]);
-      document.documentElement.style.setProperty('--wash-b',l[2]);
-      btn.textContent='BG: '+l[0];
-    }
-    btn.addEventListener('click',function(){ i=(i+1)%levels.length; apply(); });
-    apply();
-  })();
-  </script>
 </body>
 </html>
